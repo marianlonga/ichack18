@@ -4,6 +4,8 @@
     <!-- Include semantic, my personal favourite front end framework -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="chart.js"></script>
+    <script src="chartConfigs.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" media="screen" rel="stylesheet" type="text/css">
   </head>
     <body>
@@ -20,6 +22,17 @@
                     seen: true
                 }
             })
+        </script>
+        <div class="container">
+            <div class="row">
+                <div class="col flex-first">
+                    <canvas id="nutritionChart" width=200 height=200></canvas>
+                </div>
+            </div>    
+        </div>
+        <script>
+        var nutritionChart = document.getElementById('nutritionChart');
+        var myChart = new Chart(nutritionChart, barChartConfig);
         </script>
     </body>
 </html>
