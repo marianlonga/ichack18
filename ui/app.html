@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Vue Test</title>
+    <!-- Include semantic, my personal favourite front end framework -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" media="screen" rel="stylesheet" type="text/css">
+  </head>
+    <body>
+        <div id="app">
+            <span v-if="seen" v-bind:title="message">
+                This is text
+            </span>
+        </div>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'You loaded this page in ' + new Date().getFullYear(),
+                    seen: true
+                }
+            })
+        </script>
+    </body>
+</html>
