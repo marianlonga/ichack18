@@ -16,12 +16,13 @@ params = {
     'language': 'en',
 }
 
+PHOTOS_DIRECTORY = "yolo/darknet/output"
 
 def get_latest_filename():
-    return (os.listdir("yolo/darknet/output"))[-1]
+    return (sorted(os.listdir(PHOTOS_DIRECTORY)))[-1]
 
 def get_timestamp_from_filename():
-    latest_filename = (os.listdir("yolo/darknet/output"))[-1]
+    latest_filename = (sorted(os.listdir(PHOTOS_DIRECTORY)))[-1]
     latest_times = ' '.join(((((latest_filename.split('.'))[0]).split('_'))[1:]))
     datetime_object = datetime.datetime.strptime(latest_times, '%Y %m %d %H %M %S')
     return datetime_object
@@ -53,7 +54,7 @@ while True:
 
     if is_there_a_new_image():
 
-        image = open('yolo/darknet/output/' + get_latest_filename(), 'rb').read()
+        image = open(PHOTOS_DIRECTORY + '/' + get_latest_filename(), 'rb').read()
 
         label, probability = 'none', 0
 
