@@ -1,10 +1,10 @@
-barChartConfig = {
+var barChartConfig = {
     type: 'bar',
     data: {
         labels: ["Carbohydrates", "Energy (calories)", "Sugars", "Water", "Calories"],
         datasets: [{
             label: '% Consumption',
-            data: [100, 29, 3, 5, 3], //We will put our data here
+            data: [0, 0, 0, 0, 0], //We will put our data here
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
