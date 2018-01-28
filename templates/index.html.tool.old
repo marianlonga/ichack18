@@ -1,0 +1,146 @@
+<html>
+  <head>
+    <title>Vue Test</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+    <script src="chart.js"></script>
+    <script src="chartConfigs.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" media="screen" rel="stylesheet" type="text/css">
+  </head>
+    <body>
+      <table width=100% height=100%>
+        <tr>
+          <td>
+            <!-- Perhaps add a calorie meter here aligned to the right as a single bar -->
+          </td>
+        </tr>
+        <tr>
+          <td>
+        <section class="container">
+            <div class="row">
+                <div class="col">
+                  <div class="chart-container" style="position: relative; height:10%; width:100%">
+                      <canvas id="nutritionChart" width=500 height=500></canvas>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="chart-container" style="position: relative; height:10%; width:100%">
+                      <canvas id="nutritionChart2" width=500 height=500></canvas>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </td>
+      <tr>
+        <td>
+        <section class="container">
+          <div class="row">
+          <div class="col" align=center>
+            <div class="chart-container" style="position: static; height:10%; width:50%">
+                <canvas id="nutritionChart3" width=500 height=500></canvas>
+            </div>
+          </div>
+        </div>
+        </div>
+      </td>
+      </tr>
+    </table>
+        <script>
+            fetch("/output")
+            .then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(function(response)
+          {
+
+            var nutritionData = response;
+
+            //For offline testing:
+            //rawData = '[{"label": "cola", "energy": 30, "sugar": 110, "datetime": "2018_01_27_11_22_33"}, {"label": "fanta", "energy": 40, "sugar": 600, "datetime": "2018_01_27_11_22_10"}, {"label": "water", "energy": 60, "sugar": 120, "datetime": "2018_01_27_11_22_04"}]'
+            //var nutritionData = JSON.parse(rawData)
+            //console.log(nutritionData.length;
+
+            var totEnergy = 0;
+            var totSugar = 0;
+            var cumEnergyArray = [];
+            var cumSugarArray = [];
+            var dateArray = [];
+            //More variables here
+            for (var i = nutritionData.length - 1; i>=0; i--)
+            {
+              totEnergy += nutritionData[i].energy;
+              cumEnergyArray[i] = totEnergy;
+              totSugar += nutritionData[i].sugar;
+              cumSugarArray[i] = totSugar;
+              //Parse the json datetime form into a Date form
+              var currentDateArray = [];
+              var index = 0;
+              var updateNext = false; //If true then a new entry is created for the number
+              //instead of being updated
+              for (var j = 0; j<nutritionData[i].datetime.length; j++)
+              {
+                if (nutritionData[i].datetime[j] == "_")
+                  {
+                    index ++; //Define the separation of year/month/day/hour/min/sec
+                    updateNext = false;
+                  }
+                else
+                  {
+                    if (updateNext)
+                    {
+                      currentDateArray[index] = "" + currentDateArray[index] + nutritionData[i].datetime[j];
+                    }
+                    else
+                    {
+                      currentDateArray[index] = nutritionData[i].datetime[j];
+                      updateNext = true;
+                    }
+                  }
+              }
+              dateArray.unshift(currentDateArray);
+            }
+            //console.log(dateArray);
+
+            //Display values w.r.t time
+            barChartConfig.data.labels = [];
+            barChartConfig.data.datasets[0].data = [];
+            barChartConfig3.data.labels = [];
+            barChartConfig3.data.datasets[0].data = [];
+            barChartConfig.type = 'line';
+            barChartConfig3.type = 'line';
+            for (var i = 0; i<dateArray.length; i++)
+            {
+              barChartConfig.data.labels[i] = new Date(dateArray[i][0], dateArray[i][1] - 1, dateArray[i][2], dateArray[i][3], dateArray[i][4], dateArray[i][5])
+              barChartConfig3.data.labels[i] = new Date(dateArray[i][0], dateArray[i][1] - 1, dateArray[i][2], dateArray[i][3], dateArray[i][4], dateArray[i][5])
+              barChartConfig.data.datasets[0].data[i] = nutritionData[i].energy;
+              barChartConfig.data.datasets[1].data[i] = nutritionData[i].sugar;
+              barChartConfig3.data.datasets[0].data[i] = cumEnergyArray[i]
+              barChartConfig3.data.datasets[1].data[i] = cumSugarArray[i];
+
+            }
+            barChartConfig.data.datasets[0].label = "Energy";
+            barChartConfig.data.datasets[1].label = "Sugar";
+            barChartConfig3.data.datasets[0].label = "Energy";
+            barChartConfig3.data.datasets[1].label = "Sugar";
+
+            // Display data on graph (total values)
+
+            //Up to 5 different datatypes are currently supported
+            //Only two are currently used. See chartConfig.js
+            barChartConfig2.data.labels = ["Energy", "Sugar"];
+            barChartConfig2.data.datasets[0].data = [totEnergy,totSugar];
+
+            var nutritionChart = document.getElementById('nutritionChart');
+            var myChart = new Chart(nutritionChart, barChartConfig);
+            //Chart.Line('nutritionChart', barChartConfig)
+            var nutritionChart2 = document.getElementById('nutritionChart2');
+            var myChart2 = new Chart(nutritionChart2, barChartConfig2);
+
+            var nutritionChart3 = document.getElementById('nutritionChart3');
+            var myChart3 = new Chart(nutritionChart3, barChartConfig3);
+
+            //nutritionChart.canvas.parentNode.style.height = '10px';
+            //console.log(dateArray);
+          });
+        </script>
+    </body>
+</html>

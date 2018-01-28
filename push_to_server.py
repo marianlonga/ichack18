@@ -22,10 +22,18 @@ def graphs():
 def chart_js():
 	return render_template("chart.js")
 
+
 @app.route("/chartConfigs.js")
 def chart_configs_js():
 	return render_template("chartConfigs.js")
 
+
+#@app.route('/new/assets/<path:path>')
+#def catch_all(path):
+	#print("path: " + path)
+	#full_path = './new/assets/' + path
+	#print(full_path)
+	#return app.send_static_file(full_path)
 
 if __name__ == "main":
 	app.run()
