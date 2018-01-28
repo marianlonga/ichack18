@@ -13,7 +13,7 @@ def output():
 	#return render_template("index.html", food_log=food_log)
 
 
-@app.route("/graphs")
+@app.route("/")
 def graphs():
 	return render_template("index.html")
 
