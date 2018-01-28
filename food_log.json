@@ -1,0 +1,5 @@
+[
+  {"label": "cola", "energy": 30, "sugar": 110, "datetime": "2017_02_01_16_03_25"},
+  {"label": "fanta", "energy": 40, "sugar": 600, "datetime": "2017_02_01_16_02_12"},
+  {"label": "water", "energy": 60, "sugar": 120, "datetime": "2017_02_01_16_01_03"}
+]

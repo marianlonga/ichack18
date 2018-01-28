@@ -1,0 +1,34 @@
+{
+  "cola": {
+    "volume": 330,
+    "energy": 139,
+    "fat": 0,
+    "carbohydrates": 35,
+    "protein": 0,
+    "salt": 0
+  },
+  "fanta" : {
+    "volume": 330,
+    "energy": 63,
+    "fat": 0,
+    "carbohydrates": 15,
+    "protein": 0,
+    "salt": 0
+  },
+  "water" : {
+    "volume": 500,
+    "energy": 280,
+    "fat": 0,
+    "carbohydrates": 35,
+    "protein": 0,
+    "salt": 0
+  },
+  "oasis" : {
+    "volume": 500,
+    "energy": 0,
+    "fat": 0,
+    "carbohydrates": 0,
+    "protein": 0,
+    "salt": 0.4
+  }
+}
