@@ -2,7 +2,10 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,8 +30,9 @@
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
+
 <body>
-        <!-- Left Panel -->
+    <!-- Left Panel -->
 
 
 
@@ -41,105 +45,118 @@
         <!-- Header-->
         <header id="header" class="header">
             <h2 style="text-align: center;">Health Hype</h2>
-        </header><!-- /header -->
+        </header>
+        <!-- /header -->
         <!-- Header-->
 
         <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
 
-                        <div class="col-lg-6">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-3">Yearly Sales </h4>
+                                <canvas id="nutritionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-3">Team Commits </h4>
+                                <canvas id="nutritionChart2"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-3">Bar chart </h4>
+                                <canvas id="nutritionChart3"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-3">Rader chart </h4>
+                                <canvas id="radarChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-3">Line Chart </h4>
+                                <canvas id="lineChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="mb-3">Yearly Sales </h4>
-                                    <canvas id="nutritionChart"></canvas>
+                                    <h4 class="mb-3">Doughut Chart </h4>
+                                    <canvas id="doughutChart"></canvas>
                                 </div>
                             </div>
-                        </div><!-- /# column -->
+                        </div>
+                        <!-- /# column -->
 
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="mb-3">Team Commits </h4>
-                                    <canvas id="nutritionChart2"></canvas>
-                                </div>
+                    </div>
+                    <!-- /# column -->
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-3">Pie Chart </h4>
+                                <canvas id="pieChart"></canvas>
                             </div>
-                        </div><!-- /# column -->
+                        </div>
+                    </div>
+                    <!-- /# column -->
 
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="mb-3">Bar chart </h4>
-                                    <canvas id="nutritionChart3"></canvas>
-                                </div>
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-3">Polar Chart </h4>
+                                <canvas id="polarChart"></canvas>
                             </div>
-                        </div><!-- /# column -->
+                        </div>
+                    </div>
+                    <!-- /# column -->
 
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="mb-3">Rader chart </h4>
-                                    <canvas id="radarChart"></canvas>
-                                </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-3">Single Bar Chart </h4>
+                                <canvas id="singelBarChart"></canvas>
                             </div>
-                        </div><!-- /# column -->
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="mb-3">Line Chart </h4>
-                                    <canvas id="lineChart"></canvas>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="mb-3">Doughut Chart </h4>
-                                        <canvas id="doughutChart"></canvas>
-                                    </div>
-                                </div>
-                            </div><!-- /# column -->
-
-                        </div><!-- /# column -->
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="mb-3">Pie Chart </h4>
-                                    <canvas id="pieChart"></canvas>
-                                </div>
-                            </div>
-                        </div><!-- /# column -->
-
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="mb-3">Polar Chart </h4>
-                                    <canvas id="polarChart"></canvas>
-                                </div>
-                            </div>
-                        </div><!-- /# column -->
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="mb-3">Single Bar Chart </h4>
-                                    <canvas id="singelBarChart"></canvas>
-                                </div>
-                            </div>
-                        </div><!-- /# column -->
+                        </div>
+                    </div>
+                    <!-- /# column -->
 
 
 
                 </div>
 
-            </div><!-- .animated -->
-        </div><!-- .content -->
+            </div>
+            <!-- .animated -->
+        </div>
+        <!-- .content -->
 
 
-    </div><!-- /#right-panel -->
+    </div>
+    <!-- /#right-panel -->
 
     <!-- Right Panel -->
 
@@ -148,107 +165,107 @@
     <script src="static/assets/js/popper.min.js"></script>
     <script src="static/assets/js/plugins.js"></script>
     <script src="static/assets/js/main.js"></script>
-        <!--  Chart js -->
+    <!--  Chart js -->
     <!--script src="static/assets/js/lib/chart-js/Chart.bundle.js"></script-->
     <!--script src="static/assets/js/lib/chart-js/chartjs-init.js"></script-->
     <script src="static/assets/js/chart.js"></script>
     <script src="static/assets/js/chartConfigs.js"></script>
     <script>
-        fetch("/output")
-        .then(res => res.json())
-        .catch(error => console.error('Error:', error))
-        .then(function(response)
-      {
 
-        var nutritionData = response;
 
-        //For offline testing:
-        //rawData = '[{"label": "cola", "energy": 30, "sugar": 110, "datetime": "2018_01_26_11_22_33"}, {"label": "fanta", "energy": 40, "sugar": 600, "datetime": "2018_01_27_11_22_10"}, {"label": "water", "energy": 60, "sugar": 120, "datetime": "2018_01_28_11_22_04"}]'
-        //var nutritionData = JSON.parse(rawData)
-        //console.log(nutritionData.length;
+        function refreshData() {
+            fetch("/output")
+                .then(res => res.json())
+                .catch(error => console.error('Error:', error))
+                .then(function (response) {
 
-        var totEnergy = 0;
-        var totSugar = 0;
-        var cumEnergyArray = [];
-        var cumSugarArray = [];
-        var dateArray = [];
-        //More variables here
-          for (var i = 0; i<nutritionData.length; i++)
-          {
-            totEnergy += nutritionData[i].energy;
-            cumEnergyArray[i] = totEnergy;
-            totSugar += nutritionData[i].sugar;
-            cumSugarArray[i] = totSugar;
-            //Parse the json datetime form into a Date form
-            var currentDateArray = [];
-            var index = 0;
-            var updateNext = false; //If true then a new entry is created for the number
-            //instead of being updated
-            for (var j = 0; j<nutritionData[i].datetime.length; j++)
-            {
-              if (nutritionData[i].datetime[j] == "_")
-                {
-                  index ++; //Define the separation of year/month/day/hour/min/sec
-                  updateNext = false;
-                }
-              else
-                {
-                  if (updateNext)
-                  {
-                    currentDateArray[index] = "" + currentDateArray[index] + nutritionData[i].datetime[j];
-                  }
-                  else
-                  {
-                    currentDateArray[index] = nutritionData[i].datetime[j];
-                    updateNext = true;
-                  }
-                }
-            }
-            dateArray.push(currentDateArray);
+                    var nutritionData = response;
+
+                    //For offline testing:
+                    //rawData = '[{"label": "cola", "energy": 30, "sugar": 110, "datetime": "2018_01_26_11_22_33"}, {"label": "fanta", "energy": 40, "sugar": 600, "datetime": "2018_01_27_11_22_10"}, {"label": "water", "energy": 60, "sugar": 120, "datetime": "2018_01_28_11_22_04"}]'
+                    //var nutritionData = JSON.parse(rawData)
+                    //console.log(nutritionData.length;
+
+                    var totEnergy = 0;
+                    var totSugar = 0;
+                    var cumEnergyArray = [];
+                    var cumSugarArray = [];
+                    var dateArray = [];
+                    //More variables here
+                    for (var i = 0; i < nutritionData.length; i++) {
+                        totEnergy += nutritionData[i].energy;
+                        cumEnergyArray[i] = totEnergy;
+                        totSugar += nutritionData[i].sugar;
+                        cumSugarArray[i] = totSugar;
+                        //Parse the json datetime form into a Date form
+                        var currentDateArray = [];
+                        var index = 0;
+                        var updateNext = false; //If true then a new entry is created for the number
+                        //instead of being updated
+                        for (var j = 0; j < nutritionData[i].datetime.length; j++) {
+                            if (nutritionData[i].datetime[j] == "_") {
+                                index++; //Define the separation of year/month/day/hour/min/sec
+                                updateNext = false;
+                            }
+                            else {
+                                if (updateNext) {
+                                    currentDateArray[index] = "" + currentDateArray[index] + nutritionData[i].datetime[j];
+                                }
+                                else {
+                                    currentDateArray[index] = nutritionData[i].datetime[j];
+                                    updateNext = true;
+                                }
+                            }
+                        }
+                        dateArray.push(currentDateArray);
+                    }
+                    //console.log(dateArray);
+
+                    //Display values w.r.t time
+                    barChartConfig.data.labels = [];
+                    barChartConfig.data.datasets[0].data = [];
+                    barChartConfig3.data.labels = [];
+                    barChartConfig3.data.datasets[0].data = [];
+                    barChartConfig.type = 'line';
+                    barChartConfig3.type = 'line';
+                    for (var i = 0; i < dateArray.length; i++) {
+                        barChartConfig.data.labels[i] = new Date(dateArray[i][0], dateArray[i][1] - 1, dateArray[i][2], dateArray[i][3], dateArray[i][4], dateArray[i][5])
+                        barChartConfig3.data.labels[i] = new Date(dateArray[i][0], dateArray[i][1] - 1, dateArray[i][2], dateArray[i][3], dateArray[i][4], dateArray[i][5])
+                        barChartConfig.data.datasets[0].data[i] = nutritionData[i].energy;
+                        barChartConfig.data.datasets[1].data[i] = nutritionData[i].sugar;
+                        barChartConfig3.data.datasets[0].data[i] = cumEnergyArray[i]
+                        barChartConfig3.data.datasets[1].data[i] = cumSugarArray[i];
+
+                    }
+                    barChartConfig.data.datasets[0].label = "Energy";
+                    barChartConfig.data.datasets[1].label = "Sugar";
+                    barChartConfig3.data.datasets[0].label = "Energy";
+                    barChartConfig3.data.datasets[1].label = "Sugar";
+
+                    // Display data on graph (total values)
+
+                    //Up to 5 different datatypes are currently supported
+                    //Only two are currently used. See chartConfig.js
+                    barChartConfig2.data.labels = ["Energy", "Sugar"];
+                    barChartConfig2.data.datasets[0].data = [totEnergy, totSugar];
+
+                    var nutritionChart = document.getElementById('nutritionChart');
+                    var myChart = new Chart(nutritionChart, barChartConfig);
+                    //Chart.Line('nutritionChart', barChartConfig)
+                    var nutritionChart2 = document.getElementById('nutritionChart2');
+                    var myChart2 = new Chart(nutritionChart2, barChartConfig2);
+
+                    var nutritionChart3 = document.getElementById('nutritionChart3');
+                    var myChart3 = new Chart(nutritionChart3, barChartConfig3);
+
+                    //nutritionChart.canvas.parentNode.style.height = '10px';
+                    console.log("fetch complete");
+                });
         }
-        //console.log(dateArray);
 
-        //Display values w.r.t time
-        barChartConfig.data.labels = [];
-        barChartConfig.data.datasets[0].data = [];
-        barChartConfig3.data.labels = [];
-        barChartConfig3.data.datasets[0].data = [];
-        barChartConfig.type = 'line';
-        barChartConfig3.type = 'line';
-        for (var i = 0; i<dateArray.length; i++)
-        {
-          barChartConfig.data.labels[i] = new Date(dateArray[i][0], dateArray[i][1] - 1, dateArray[i][2], dateArray[i][3], dateArray[i][4], dateArray[i][5])
-          barChartConfig3.data.labels[i] = new Date(dateArray[i][0], dateArray[i][1] - 1, dateArray[i][2], dateArray[i][3], dateArray[i][4], dateArray[i][5])
-          barChartConfig.data.datasets[0].data[i] = nutritionData[i].energy;
-          barChartConfig.data.datasets[1].data[i] = nutritionData[i].sugar;
-          barChartConfig3.data.datasets[0].data[i] = cumEnergyArray[i]
-          barChartConfig3.data.datasets[1].data[i] = cumSugarArray[i];
-
-        }
-        barChartConfig.data.datasets[0].label = "Energy";
-        barChartConfig.data.datasets[1].label = "Sugar";
-        barChartConfig3.data.datasets[0].label = "Energy";
-        barChartConfig3.data.datasets[1].label = "Sugar";
-
-        // Display data on graph (total values)
-
-        //Up to 5 different datatypes are currently supported
-        //Only two are currently used. See chartConfig.js
-        barChartConfig2.data.labels = ["Energy", "Sugar"];
-        barChartConfig2.data.datasets[0].data = [totEnergy,totSugar];
-
-        var nutritionChart = document.getElementById('nutritionChart');
-        var myChart = new Chart(nutritionChart, barChartConfig);
-        //Chart.Line('nutritionChart', barChartConfig)
-        var nutritionChart2 = document.getElementById('nutritionChart2');
-        var myChart2 = new Chart(nutritionChart2, barChartConfig2);
-
-        var nutritionChart3 = document.getElementById('nutritionChart3');
-        var myChart3 = new Chart(nutritionChart3, barChartConfig3);
-
-        //nutritionChart.canvas.parentNode.style.height = '10px';
-        //console.log(dateArray);
-      });
+        refreshData();
+        setInterval(refreshData, 5000);
     </script>
 </body>
+
 </html>
