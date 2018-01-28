@@ -16,7 +16,7 @@ params = {
     'language': 'en',
 }
 
-PHOTOS_DIRECTORY = "yolo/darknet/output"
+PHOTOS_DIRECTORY = "../darknet/output"
 
 def get_latest_filename():
     return (sorted(os.listdir(PHOTOS_DIRECTORY)))[-1]
@@ -77,6 +77,7 @@ while True:
 
         # write to file
         new_json_row = {"label": label, "energy": get_calories_from_label(label), "sugar": get_sugar_from_label(label), "datetime": datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}
+        print(new_json_row)
         with open('food_log.json') as f:
             data = json.load(f)
         data.append(new_json_row)
