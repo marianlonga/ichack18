@@ -15,20 +15,20 @@
     "protein": 0,
     "salt": 0
   },
-  "water" : {
-    "volume": 500,
-    "energy": 280,
-    "fat": 0,
-    "sugar": 35,
-    "protein": 0,
-    "salt": 0
-  },
   "oasis" : {
+    "volume": 500,
+    "energy": 86,
+    "fat": 0,
+    "sugar": 10,
+    "protein": 0,
+    "salt": 0.2
+  },
+  "water" : {
     "volume": 500,
     "energy": 0,
     "fat": 0,
     "sugar": 0,
     "protein": 0,
-    "salt": 0.4
+    "salt": 0
   }
 }
