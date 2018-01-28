@@ -11,6 +11,8 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
+#define CROP_BUFFER 25
+
 int windows = 0;
 
 float colors[6][3] = { {1,0,1}, {0,0,1},{0,1,1},{0,1,0},{1,1,0},{1,0,0} };
@@ -241,7 +243,7 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
     int i,j;
     //this is the code that actually draws boxes
     printf("Raw classes found: %d\n", num);
-    cropped = im;
+    cropped = copy_image(im);
 
     for(i = 0; i < num; ++i){
         char labelstr[4096] = {0};
@@ -276,25 +278,31 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
 
             //we have something useful if class>0? yes
             //here you put found bottle
-            if (!strcmp(labelstr, "bottle")) {
-                printf("***Bottle detected\n");
+            if (!strcmp(labelstr, "bottle") || !strcmp(labelstr, "cup")) {
+                printf("***Bottle/Cup detected***\n");
                 box b = boxes[i];
-                printf("Box shit: x: %0.f y: %0.f", b.x, b.y);
 
-                //int left  = (b.x-b.w/2.)*im.w;
-                //int right = (b.x+b.w/2.)*im.w;
-                //int top   = (b.y-b.h/2.)*im.h;
-                //int bot   = (b.y+b.h/2.)*im.h;
+                int left  = (b.x-b.w/2.)*im.w - CROP_BUFFER; //extra room
+                int right = (b.x+b.w/2.)*im.w + CROP_BUFFER;
+                int top   = (b.y-b.h/2.)*im.h - CROP_BUFFER;
+                int bot   = (b.y+b.h/2.)*im.h + CROP_BUFFER;
 
-                //if(left < 0) left = 0;
-                //if(right > im.w-1) right = im.w-1;
-                //if(top < 0) top = 0;
-                //if(bot > im.h-1) bot = im.h-1;
+                if(left < 0) left = 0;
+                if(right > im.w-1) right = im.w-1;
+                if(top < 0) top = 0;
+                if(bot > im.h-1) bot = im.h-1;
 
-                image you_suck = crop_image(im, 0, 0, 100, 100);
+                image you_suck = crop_image(cropped, left, top, right-left, bot-top);
                 char name[256];
-                sprintf(name, "%s_%08d", "something", time(0));
+                
+                char buff[20];
+                time_t now = time(NULL);
+                strftime(buff, 20, "%Y_%m_%d_%H_%M_%S", localtime(&now));
+                sprintf(name, "%s_%s", "output/output", buff);
+                
+                //cropped = you_suck;
                 save_image(you_suck, name);
+                free_image(you_suck);
                 //crop_image
             }
             //if (labelstr == "bottle"){
