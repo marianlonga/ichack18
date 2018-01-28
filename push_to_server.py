@@ -18,6 +18,15 @@ def graphs():
 	return render_template("index.html")
 
 
+@app.route("/chart.js")
+def chart_js():
+	return render_template("chart.js")
+
+@app.route("/chartConfigs.js")
+def chart_configs_js():
+	return render_template("chartConfigs.js")
+
+
 if __name__ == "main":
 	app.run()
 

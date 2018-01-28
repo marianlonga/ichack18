@@ -1,11 +1,59 @@
-<script type="text/javascript">
+<html>
+  <head>
+    <title>Vue Test</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+    <script src="chart.js"></script>
+    <script src="chartConfigs.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" media="screen" rel="stylesheet" type="text/css">
+  </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col ">
+                    <canvas id="nutritionChart" width=200 height=200></canvas>
+                </div>
+            </div>
+        </div>
+        <script>
 
 
+            fetch("/output")
+            .then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(function(response)
+          {
+            var nutritionData = response;
 
-var food_log = fetch("/output").then(function(response){
-    return response.json();
-});
+            console.log(nutritionData);
 
-console.log(food_log);
+            //For testing: rawData = '[{"label": "cola", "energy": 30, "sugar": 110, "datetime": "2018_01_02_11_22_33"}, {"label": "fanta", "energy": 40, "sugar": 600, "datetime": "2018_01_02_11_22_10"}, {"label": "water", "energy": 60, "sugar": 120, "datetime": "2018_01_02_11_22_04"}]'
+            //var nutritionData = JSON.parse(rawData)
+            //console.log(nutritionData.length;
+            var totEnergy = 0;
+            var totSugar = 0;
+            var dateArray = [];
+            //More variables here
+            for (var i = nutritionData.length - 1; i>=0; i--)
+            {
+              totEnergy += nutritionData[i].energy
+              totSugar += nutritionData[i].sugar
+              dateArray.unshift([nutritionData[i]])
+            }
 
-</script>
+
+            // Visual part
+
+            //Up to 5 different datatypes are currently supported
+            //Only two are currently used. See chartConfig.js
+            barChartConfig.data.labels = ["Energy", "Sugar"]
+            barChartConfig.data.datasets[0].data = [totEnergy,totSugar]
+            var nutritionChart = document.getElementById('nutritionChart');
+            var myChart = new Chart(nutritionChart, barChartConfig);
+            console.log(dateArray)
+
+          });
+
+        </script>
+    </body>
+</html>
